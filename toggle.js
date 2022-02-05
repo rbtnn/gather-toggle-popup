@@ -1,19 +1,38 @@
 
 function toggle() {
 	var es1 = document.getElementsByClassName('ActionBar-container');
-	for (var i = 0; i < es1.length; i++)
-	{
-		es1[i].classList.toggle('__web-inspector-hide-shortcut__');
-	}
 	var es2 = document.getElementsByClassName('GameVideo-self-video-container');
-	for (var i = 0; i < es2.length; i++)
-	{
-		es2[i].classList.toggle('__web-inspector-hide-shortcut__');
-	}
 	var es3 = document.getElementsByClassName('GameVideosContainer-videobar-container');
-	for (var i = 0; i < es3.length; i++)
-	{
-		es3[i].classList.toggle('__web-inspector-hide-shortcut__');
+	var classname = '__web-inspector-hide-shortcut__';
+
+	var exists = false;
+	for (var i = 0; i < es1.length; i++) {
+		exists = exists || es1[i].classList.contains(classname);
+	}
+
+	for (var i = 0; i < es1.length; i++) {
+		if (exists) {
+			es1[i].classList.remove(classname);
+		}
+		else {
+			es1[i].classList.add(classname);
+		}
+	}
+	for (var i = 0; i < es2.length; i++) {
+		if (exists) {
+			es2[i].classList.remove(classname);
+		}
+		else {
+			es2[i].classList.add(classname);
+		}
+	}
+	for (var i = 0; i < es3.length; i++) {
+		if (exists) {
+			es3[i].classList.remove(classname);
+		}
+		else {
+			es3[i].classList.add(classname);
+		}
 	}
 }
 
